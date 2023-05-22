@@ -30,7 +30,7 @@ public class MaxTwinPairSumLinkedList {
     return maxSum;
   }
 
-  public int pairSumü(ListNode head) {
+  public int pairSums(ListNode head) {
     ListNode slow = head;
     ListNode fast = head;
 
