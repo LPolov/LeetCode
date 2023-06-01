@@ -1,5 +1,6 @@
 package tasks.problems.graphs;
 
+import tasks.problems.models.DefaultGraphNode;
 import tasks.problems.models.GraphNode;
 
 import java.util.HashMap;
@@ -9,15 +10,14 @@ import java.util.Queue;
 
 public class SearchInDeep {
 
-
-  public int findShortestWay(GraphNode root) {
+  public int findShortestWay(DefaultGraphNode root) {
     Queue<GraphNode> nodes = new LinkedList<>();
     Map<GraphNode, Integer> shortestPath = new HashMap<>();
     nodes.add(root);
     shortestPath.put(root, 0);
-    GraphNode curNode;
+    DefaultGraphNode curNode;
     while (!nodes.isEmpty()) {
-      curNode = nodes.poll();
+      curNode = (DefaultGraphNode) nodes.poll();
       if (curNode.getChildren().isEmpty()) {
         return shortestPath.get(curNode);
       }

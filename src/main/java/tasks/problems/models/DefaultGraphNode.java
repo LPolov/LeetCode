@@ -4,24 +4,23 @@ import java.util.List;
 
 public class DefaultGraphNode implements GraphNode {
 
-  private int value;
+  private String name;
   private List<GraphNode> children;
 
-  public DefaultGraphNode(int value, List<GraphNode> children) {
-    this.value = value;
+  public DefaultGraphNode(String name, List<GraphNode> children) {
+    this.name = name;
     this.children = children;
   }
 
-  public DefaultGraphNode(int value) {
-    this.value = value;
+  public DefaultGraphNode(String name) {
+    this.name = name;
   }
 
   @Override
-  public int getValue() {
-    return value;
+  public String getName() {
+    return name;
   }
 
-  @Override
   public List<GraphNode> getChildren() {
     return children;
   }

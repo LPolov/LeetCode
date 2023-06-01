@@ -17,19 +17,19 @@ class SearchInDeepTest {
 
   @ParameterizedTest
   @MethodSource("data")
-  void findShortestWay(GraphNode graphNode, int steps) {
+  void findShortestWay(DefaultGraphNode graphNode, int steps) {
     SearchInDeep searchInDeep = new SearchInDeep();
     assertEquals(steps, searchInDeep.findShortestWay(graphNode));
   }
 
   private static Stream<Arguments> data() {
-    DefaultGraphNode a = new DefaultGraphNode(1);
-    DefaultGraphNode b = new DefaultGraphNode(2);
-    DefaultGraphNode c = new DefaultGraphNode(3);
-    DefaultGraphNode d = new DefaultGraphNode(4);
-    DefaultGraphNode e = new DefaultGraphNode(5);
-    DefaultGraphNode f = new DefaultGraphNode(6);
-    DefaultGraphNode g = new DefaultGraphNode(7);
+    DefaultGraphNode a = new DefaultGraphNode("a");
+    DefaultGraphNode b = new DefaultGraphNode("b");
+    DefaultGraphNode c = new DefaultGraphNode("c");
+    DefaultGraphNode d = new DefaultGraphNode("d");
+    DefaultGraphNode e = new DefaultGraphNode("e");
+    DefaultGraphNode f = new DefaultGraphNode("f");
+    DefaultGraphNode g = new DefaultGraphNode("g");
 
     a.setChildren(Arrays.asList(b, c, d));
     b.setChildren(Arrays.asList(c, e));
@@ -40,12 +40,12 @@ class SearchInDeepTest {
     g.setChildren(Collections.EMPTY_LIST);
 
 
-    DefaultGraphNode aa = new DefaultGraphNode(1);
-    DefaultGraphNode bb = new DefaultGraphNode(2);
-    DefaultGraphNode cc = new DefaultGraphNode(3);
-    DefaultGraphNode dd = new DefaultGraphNode(4);
-    DefaultGraphNode ee = new DefaultGraphNode(5);
-    DefaultGraphNode ff = new DefaultGraphNode(6);
+    DefaultGraphNode aa = new DefaultGraphNode("a");
+    DefaultGraphNode bb = new DefaultGraphNode("b");
+    DefaultGraphNode cc = new DefaultGraphNode("c");
+    DefaultGraphNode dd = new DefaultGraphNode("d");
+    DefaultGraphNode ee = new DefaultGraphNode("e");
+    DefaultGraphNode ff = new DefaultGraphNode("f");
 
     aa.setChildren(Arrays.asList(bb, cc, dd));
     bb.setChildren(Arrays.asList(cc, ee));
