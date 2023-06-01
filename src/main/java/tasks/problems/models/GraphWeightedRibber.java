@@ -1,7 +1,7 @@
 package tasks.problems.models;
 
 public class GraphWeightedRibber {
-  private GraphNode node;
+  private WeightedNode node;
   private int weight;
 
   public GraphWeightedRibber(WeightedNode node, int weight) {
@@ -9,7 +9,7 @@ public class GraphWeightedRibber {
     this.weight = weight;
   }
 
-  public GraphNode getNode() {
+  public WeightedNode getNode() {
     return node;
   }
 

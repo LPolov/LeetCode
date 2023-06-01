@@ -1,18 +1,31 @@
 package tasks.problems.graphs;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
 import tasks.problems.models.GraphWeightedRibber;
 import tasks.problems.models.WeightedNode;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DaykstraTest {
+
+  @Test
+  void findShortestWayWeightSimple() {
+    WeightedNode a = new WeightedNode("a");
+    WeightedNode b = new WeightedNode("b");
+    WeightedNode c = new WeightedNode("c");
+    WeightedNode d = new WeightedNode("d");
+
+    a.setRibbers(Arrays.asList(new GraphWeightedRibber(b, 1), new GraphWeightedRibber(c, 5)));
+    b.setRibbers(Arrays.asList(new GraphWeightedRibber(c, 2), new GraphWeightedRibber(d, 15)));
+    c.setRibbers(Arrays.asList(new GraphWeightedRibber(d, 12)));
+    d.setRibbers(Collections.EMPTY_LIST);
+
+    Daykstra daykstra = new Daykstra();
+    assertEquals(Arrays.asList(a, b, c, d), daykstra.findShortestWay(a, d));
+  }
 
   @Test
   void findShortestWayWeight() {
@@ -45,9 +58,10 @@ class DaykstraTest {
     h.setRibbers(Arrays.asList(new GraphWeightedRibber(j, 8)));
     i.setRibbers(Arrays.asList(new GraphWeightedRibber(j, 6)));
     j.setRibbers(Arrays.asList(new GraphWeightedRibber(k, 11)));
+    k.setRibbers(Collections.EMPTY_LIST);
 
     Daykstra daykstra = new Daykstra();
-
-    assertEquals(25, daykstra.findShortestWayWeight(a, k)); // a - d - e - i - j - k
+    assertEquals(Arrays.asList(a, d, e, i, j, k), daykstra.findShortestWay(a, k));
+  //  assertEquals(null, daykstra.findShortestWay(a, k)); // a - d - e - i - j - k
   }
 }
